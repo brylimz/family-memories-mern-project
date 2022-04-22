@@ -3,7 +3,7 @@ import moment from "moment";
 import {
   Card,
   CardActions,
-  CardCotent,
+  CardContent,
   CardMedia,
   Button,
   Typography,
@@ -24,8 +24,43 @@ const Post = ({ post }) => {
       />
       <div className={classes.overlay}>
         <Typography variant="h6" className={post.creator} />
-        <Typography variant="body2" className={moment(post.createdAt).fromNow()} />
+        <Typography
+          variant="body2"
+          className={moment(post.createdAt).fromNow()}
+        />
       </div>
+      <div className={classes.overlay2}>
+        <Button style={{ color: "white" }} size="small" onClick={() => {}}>
+          <MoreHorizIcon fontSize="default" />
+        </Button>
+      </div>
+
+      <div className={classes.details}>
+        <Typography
+          variant="body2"
+          color="
+        textSecondary"
+        >
+          {post.tags.map((tag) => `#${tag} `)}
+        </Typography>
+      </div>
+      <CardContent>
+        <Typography className={classes.title} variant="h5" gutterBottom>
+          {post.messages}
+        </Typography>
+      </CardContent>
+      <CardActions className={classes.cardActions}>
+        <Button size="small" color="Primary" onClick={() => {}}>
+          <ThumbUpAltIcon fontSize="small" />
+          Like {post.likeCount}
+        </Button>
+
+        <Button size="small" color="Primary" onClick={() => {}}>
+          <DeleteIcon fontSize="small" />
+         Delete
+        </Button>
+
+      </CardActions>
     </Card>
   );
 };
