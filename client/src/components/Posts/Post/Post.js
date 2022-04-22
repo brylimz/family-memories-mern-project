@@ -57,9 +57,8 @@ const Post = ({ post }) => {
 
         <Button size="small" color="Primary" onClick={() => {}}>
           <DeleteIcon fontSize="small" />
-         Delete
+          Delete
         </Button>
-
       </CardActions>
     </Card>
   );
