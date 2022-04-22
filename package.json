@@ -1,5 +1,7 @@
 {
   "dependencies": {
+    "@material-ui/core": "^4.12.4",
+    "@material-ui/icons": "^4.11.3",
     "react-file-base64": "^1.0.3"
   }
 }
