@@ -6,6 +6,8 @@ import postRoutes from "./routes/posts.js";
 
 const app = express();
 
+
+
 app.use(bodyParser.json({ limit: "300mb", extended: true }));
 app.use(bodyParser.urlencoded({ limit: "300mb", extended: true }));
 
