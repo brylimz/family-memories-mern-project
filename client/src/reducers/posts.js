@@ -1,4 +1,4 @@
-import posts from "../components/Posts/posts";
+import posts from "../components/Posts/Posts";
 
 export default (posts = [], action) => {
   switch (action.type) {
