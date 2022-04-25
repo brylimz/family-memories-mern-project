@@ -23,11 +23,12 @@ const Post = ({ post }) => {
         title={post.title}
       />
       <div className={classes.overlay}>
-        <Typography variant="h6" className={post.creator} />
-        <Typography
-          variant="body2"
-          className={moment(post.createdAt).fromNow()}
-        />
+        <Typography variant="h6" className={classes.title}>
+          {post.creator}
+        </Typography>
+        <Typography variant="body2" className="text-white">
+          {moment(post.createdAt).fromNow()}
+        </Typography>
       </div>
       <div className={classes.overlay2}>
         <Button style={{ color: "white" }} size="small" onClick={() => {}}>
@@ -36,16 +37,13 @@ const Post = ({ post }) => {
       </div>
 
       <div className={classes.details}>
-        <Typography
-          variant="body2"
-       color="textSecondary"
-        >
+        <Typography variant="body2" color="textSecondary">
           {post.tags.map((tag) => `#${tag} `)}
         </Typography>
       </div>
       <CardContent>
         <Typography className={classes.title} variant="h5" gutterBottom>
-          {post.messages}
+          {post.message}
         </Typography>
       </CardContent>
       <CardActions className={classes.cardActions}>

@@ -36,7 +36,7 @@ const App = () => {
         </Container>
       </Grow>
     </Container>
-  );
+  ); 
 };
 
 export default App;
