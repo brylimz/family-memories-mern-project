@@ -2,9 +2,8 @@ import React, { useState, useEffect } from "react";
 import { TextField, Button, Typography, Paper } from "@material-ui/core";
 import FileBase from "react-file-base64";
 import useStyles from "./styles";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { createPost, updatePost } from "../../actions/posts";
-import { useSelector } from "react-redux";
 
 const Form = ({ currentId, setCurrentID }) => {
   const [postData, setPostData] = useState({
