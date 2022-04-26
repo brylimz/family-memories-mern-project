@@ -15,8 +15,10 @@ app.use(bodyParser.urlencoded({ limit: "300mb", extended: true }));
 app.use(cors());
 
 app.use('/posts', postRoutes);
-// const CONNECTION_URL =
-//   "mongodb+srv://javascriptmastery:123@cluster0.ipy8z.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
+
+app.get('/', (req, res) => (
+  res.send('Hello to Memories API')
+))
 const PORT = process.env.PORT || 5000;
 
 mongoose
