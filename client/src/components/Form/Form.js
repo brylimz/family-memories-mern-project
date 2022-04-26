@@ -31,7 +31,7 @@ const Form = ({ currentId, setCurrentID }) => {
       dispatch(updatePost(currentId, postData));
     } else {
       dispatch(createPost(postData));
-      clear()
+      clear();
     }
   };
   const clear = () => {
@@ -93,7 +93,7 @@ const Form = ({ currentId, setCurrentID }) => {
           label="Tags"
           fullWidth
           value={postData.tags}
-          onChange={(e) => setPostData({ ...postData, tags: e.target.value })}
+          onChange={(e) => setPostData({ ...postData, tags: e.target.value.split(',') })}
         />
         <div className={classes.fileInput}>
           <FileBase
