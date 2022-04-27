@@ -17,7 +17,7 @@ const Auth = () => {
   const classes = useStyles();
   const [showPassword, setShowPassword] = useState(false);
 
-  const isSignUp = false;
+  const isSignUp = true;
   const handleSubmit = () => {};
 
   const handleChange = (e) => {};
@@ -52,8 +52,8 @@ const Auth = () => {
                 </Input>
 
                 <Input
-                  name="firstName"
-                  label="First Name"
+                  name="lastName"
+                  label="Last Name"
                   handleChange={handleChange}
                   autoFocus
                   half
@@ -75,21 +75,26 @@ const Auth = () => {
               type={showPassword ? "text" : "password"}
               handleShowPassword={handleShowPassword}
             ></Input>
+            
             {isSignUp && (
-              <input
+              <Input
                 name="confirmPassowrd"
                 label="Repeat Password"
                 handleChange={handleChange}
                 type="password"
-              ></input>
+              ></Input>
             )}
-
-
           </Grid>
 
-          <Button type='submit' fullWidth variant="contained" color="primary" className={classes.submit}>
-             {isSignUp ? "Sign Up" : "Sign In"}
-              </Button>
+          <Button
+            type="submit"
+            fullWidth
+            variant="contained"
+            color="primary"
+            className={classes.submit}
+          >
+            {isSignUp ? "Sign Up" : "Sign In"}
+          </Button>
         </form>
       </Paper>
     </Container>
