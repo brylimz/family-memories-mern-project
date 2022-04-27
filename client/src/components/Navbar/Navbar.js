@@ -46,7 +46,12 @@ const Navbar = () => {
           </Typography>
         </div>
       ) : (
-        <Button component={Link} to="/auth" variant="contained" color="primary">
+        <Button
+          component={Link}
+          href="/auth"
+          variant="contained"
+          color="primary"
+        >
           {" "}
           Sign in
         </Button>

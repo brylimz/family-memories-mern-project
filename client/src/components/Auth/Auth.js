@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Avatar,
   Button,
@@ -15,10 +15,16 @@ import Input from "./Input";
 
 const Auth = () => {
   const classes = useStyles();
+  const [showPassword, setShowPassword] = useState(false);
+
   const isSignUp = false;
   const handleSubmit = () => {};
 
   const handleChange = (e) => {};
+
+  const handleShowPassword = () => {
+    setShowPassword((prevShowPassword) => !prevShowPassword);
+  };
 
   return (
     <Container component="main" maxWidth="xs">
@@ -41,18 +47,49 @@ const Auth = () => {
                   handleChange={handleChange}
                   autoFocus
                   half
-                ></Input>
+                >
+                  {" "}
+                </Input>
 
-                <TextField
+                <Input
                   name="firstName"
                   label="First Name"
                   handleChange={handleChange}
                   autoFocus
                   half
-                ></TextField>
+                ></Input>
               </>
             )}
+
+            <Input
+              name="email"
+              label="Email Address"
+              handleChange={handleChange}
+              type="email"
+            ></Input>
+
+            <Input
+              name="password"
+              label="Password"
+              handleChange={handleChange}
+              type={showPassword ? "text" : "password"}
+              handleShowPassword={handleShowPassword}
+            ></Input>
+            {isSignUp && (
+              <input
+                name="confirmPassowrd"
+                label="Repeat Password"
+                handleChange={handleChange}
+                type="password"
+              ></input>
+            )}
+
+
           </Grid>
+
+          <Button type='submit' fullWidth variant="contained" color="primary" className={classes.submit}>
+             {isSignUp ? "Sign Up" : "Sign In"}
+              </Button>
         </form>
       </Paper>
     </Container>
