@@ -3,18 +3,21 @@ import { AppBar, Typography, Toolbar, Button, Avatar } from "@material-ui/core";
 import useStyles from "./styles";
 import { useDispatch } from "react-redux";
 import memories from "../../images/memories.png";
-import { Link } from "@material-ui/core";
-import { useNavigate } from "react-router-dom";
+
+import { useNavigate, Link, useLocation } from "react-router-dom";
+import { LOGOUT } from "../../constants/actionTypes";
 
 const Navbar = () => {
   const classes = useStyles();
   const [user, setUser] = useState(JSON.parse(localStorage.getItem("profile")));
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const location = useLocation();
+
   const logout = () => {
     localStorage.removeItem("profile");
-    dispatch({ type: "LOGOUT" });
-    navigate.push("/");
+    dispatch({ type: LOGOUT });
+    navigate("/");
   };
 
   console.log(user);
@@ -23,14 +26,14 @@ const Navbar = () => {
     const token = user?.token;
 
     setUser(JSON.parse(localStorage.getItem("profile")));
-  }, [user]);
+  }, [location]);
 
   return (
     <AppBar className={classes.appBar} position="static" color="inherit">
       <div className={classes.brandContainer}>
         <Typography
           component={Link}
-          href="/"
+          to="/"
           className={classes.heading}
           variant="h2"
           align="center"
@@ -62,12 +65,7 @@ const Navbar = () => {
           </Button>
         </div>
       ) : (
-        <Button
-          component={Link}
-          href="/auth"
-          variant="contained"
-          color="primary"
-        >
+        <Button component={Link} to="/auth" variant="contained" color="primary">
           {" "}
           Sign in
         </Button>
